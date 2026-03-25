@@ -1,5 +1,9 @@
 :root {
   --bg: #e6e6e6;
+  --text: #1c1c1c;
+  --muted: rgba(28, 28, 28, 0.56);
+  --line: rgba(28, 28, 28, 0.08);
+  --glass: rgba(255, 255, 255, 0.34);
 }
 
 * {
@@ -9,22 +13,21 @@
 html,
 body {
   margin: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  padding: 0;
   background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
   overscroll-behavior: none;
 }
 
 body {
-  min-height: 100%;
+  min-height: 300vh;
 }
 
 #webgl {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -32,4 +35,97 @@ body {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.scroll-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.panel {
+  position: relative;
+  height: 100vh;
+}
+
+.panel-label {
+  position: absolute;
+  top: clamp(24px, 4vw, 48px);
+  left: clamp(20px, 4vw, 48px);
+  max-width: 460px;
+  mix-blend-mode: multiply;
+}
+
+.panel-label span {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.panel-label h1,
+.panel-label h2 {
+  margin: 0;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.panel-label h1 {
+  font-size: clamp(36px, 6vw, 86px);
+}
+
+.panel-label h2 {
+  font-size: clamp(28px, 4.8vw, 62px);
+}
+
+.panel-label p {
+  margin: 16px 0 0;
+  max-width: 420px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.hud {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 4;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  color: rgba(28, 28, 28, 0.7);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lil-gui {
+  --background-color: rgba(255, 255, 255, 0.78);
+  --text-color: #161616;
+  --title-background-color: rgba(0, 0, 0, 0.05);
+  --widget-color: rgba(0, 0, 0, 0.08);
+  --hover-color: rgba(0, 0, 0, 0.12);
+  --focus-color: rgba(0, 0, 0, 0.16);
+  --number-color: #111;
+  --string-color: #111;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .panel-label {
+    max-width: 84vw;
+  }
+
+  .panel-label p {
+    font-size: 13px;
+  }
+
+  .hud {
+    font-size: 10px;
+  }
 }
