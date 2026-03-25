@@ -1,26 +1,10 @@
 import * as THREE from "three";
 import { MarchingCubes } from "three/addons/objects/MarchingCubes.js";
-import GUI from "https://cdn.jsdelivr.net/npm/lil-gui@0.19/+esm";
 
 const container = document.getElementById("webgl");
-
-const scene = new THREE.Scene();
-
-const renderer = new THREE.WebGLRenderer({import * as THREE from "three";
-import { MarchingCubes } from "three/addons/objects/MarchingCubes.js";
-
-const container = document.getElementById("webgl");
-
 const MESSAGE_TYPE = "IGAP_SCROLL";
 
-/*
-  Add your Webflow domains here once you're ready.
-  Leave empty to accept messages from any origin.
-*/
-const ALLOWED_ORIGINS = [
-  // "https://your-site.webflow.io",
-  // "https://www.yourdomain.com",
-];
+const ALLOWED_ORIGINS = [];
 
 const scene = new THREE.Scene();
 
